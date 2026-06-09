@@ -1,0 +1,25 @@
+{
+  "name": "programmazione-web-esame",
+  "version": "1.0.0",
+  "description": "Esame di Programmazione Web progetto",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likingaxis/Programmazione-Web-Esame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/likingaxis/Programmazione-Web-Esame/issues"
+  },
+  "homepage": "https://github.com/likingaxis/Programmazione-Web-Esame#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
