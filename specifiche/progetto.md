@@ -24,8 +24,7 @@ La web app dovrà permettere di:
 
 * visualizzare gli esami disponibili;
 * mostrare informazioni come nome esame, professore, data, aula e descrizione;
-* cercare un esame tramite barra di ricerca in modo semplice;
-* filtrare gli esami per corso, anno o tipologia;
+* mostrare gli esami in una tabella facile da consultare;
 * aggiornare dinamicamente la pagina tramite JavaScript;
 * leggere i dati da un file JSON.
 * caricare gli esami dal backend tramite chiamate HTTP;
@@ -67,10 +66,12 @@ Questa struttura permette di mostrare il funzionamento del modello client-server
 
 Se il tempo lo permette, si possono aggiungere alcune funzionalità extra:
 
+* filtrare gli esami per corso, anno o tipologia;
 * ordinamento degli esami per data;
 * evidenziazione degli esami più vicini;
 * sezione “preferiti”;
 * messaggio quando nessun esame corrisponde alla ricerca;
+
 
 ## Cose utilizzate
 

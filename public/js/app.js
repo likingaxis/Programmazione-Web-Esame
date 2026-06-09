@@ -8,6 +8,7 @@ const dateInput = document.querySelector("#date");
 const classroomInput = document.querySelector("#classroom");
 const typeInput = document.querySelector("#type");
 const descriptionInput = document.querySelector("#description");
+const loadExamsButton = document.querySelector("#load-exams-button");
 
 function showFormMessage(message) {
   while (formMessage.firstChild) {
