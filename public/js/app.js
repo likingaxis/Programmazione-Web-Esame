@@ -130,4 +130,5 @@ async function loadExams() {                // utile perchè il fetch sarà asin
 }
 
 
+loadExamsButton.addEventListener("click", loadExams);
 examForm.addEventListener("submit", handleExamSubmit);
