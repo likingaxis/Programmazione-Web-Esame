@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portale Informatica Tor Vergata</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/app.js"></script>
 </head>
 <body>
     <header>
@@ -20,28 +22,104 @@
 
     <main>
         <section id="appelli">
-            <h2>Appelli d'esame</h2>
+                <h2>Appelli d'esame</h2>
+                <p>Consulta le date degli appelli disponibili e le informazioni principali.</p>
+                <form id="search-form">
+                    <label for="search-input">Cerca esame</label>
+                    <input 
+                        type="search" 
+                        id="search-input" 
+                        name="search" 
+                        placeholder="Es. Programmazione Web"
+                    >
+                    <button type="submit">Cerca</button>
+                    <!-- poi farò un addeventlistener su javascript per il submit del form e inviera una richiesta al server -->
+                </form>
+
+                <div id="exams-status" role="status">
+                    Gli appelli saranno caricati qui.
+                </div>
+
+                <div id="exams-list">
+                </div>
         </section>
 
         <section id="orari">
-            <h2>Orari delle lezioni</h2>
+                <h2>Orari delle lezioni</h2>
+                <p>Visualizza gli orari settimanali dei principali insegnamenti.</p>
+
+                <div id="lessons-list">
+                    <p>Gli orari saranno disponibili in questa sezione.</p>
+                </div>
         </section>
 
         <section id="comunicazioni">
-            <h2>Comunicazioni</h2>
+                <h2>Comunicazioni</h2>
+                <p>Avvisi e comunicazioni importanti per gli studenti.</p>
+
+                <div id="notices-list">
+                    <p>Le comunicazioni saranno disponibili in questa sezione.</p>
+                </div>
         </section>
 
         <section id="archivio">
-            <h2>Archivio prove scritte</h2>
+                <h2>Archivio prove scritte</h2>
+                <p>Consulta esempi di prove scritte degli anni precedenti.</p>
+
+                <div id="past-exams-list">
+                    <p>L'archivio sarà disponibile in questa sezione.</p>
+                </div>
         </section>
 
         <section id="area-docente">
-            <h2>Area docente simulata</h2>
+                <h2>Area docente simulata</h2>
+                <p>Inserisci un nuovo appello d'esame. L'area non prevede login nella versione base.</p>
+
+                <form id="exam-form">
+                    <div>
+                    <label for="course">Nome del corso</label>
+                    <input type="text" id="course" name="course" required>
+                    </div>
+
+                    <div>
+                    <label for="teacher">Docente</label>
+                    <input type="text" id="teacher" name="teacher" required>
+                    </div>
+
+                    <div>
+                    <label for="date">Data</label>
+                    <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div>
+                    <label for="classroom">Aula</label>
+                    <input type="text" id="classroom" name="classroom" required>
+                    </div>
+
+                    <div>
+                    <label for="type">Tipologia</label>
+                    <select id="type" name="type" required>
+                        <option value="">Seleziona una tipologia</option>
+                        <option value="scritto">Scritto</option>
+                        <option value="orale">Orale</option>
+                        <option value="scritto-orale">Scritto e orale</option>
+                    </select>
+                    </div>
+
+                    <div>
+                    <label for="description">Descrizione</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit">Aggiungi appello</button>
+                </form>
+
+                <p id="form-message"></p>
         </section>
     </main>
 
     <footer>
-
+        <p> progetto per l'esame di Programmazione Web AA 2025/2026</p>
     </footer>
 </body>
 </html>
