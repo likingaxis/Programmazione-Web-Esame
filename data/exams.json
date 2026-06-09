@@ -25,5 +25,14 @@
     "classroom": "Aula Magna",
     "type": "orale",
     "description": "Colloquio orale sugli argomenti principali del corso."
+  },
+  {
+    "id": 1781028364319,
+    "course": "Reti di Calcolatori",
+    "teacher": "Docente del corso",
+    "date": "2026-07-30",
+    "classroom": "Aula 4",
+    "type": "scritto",
+    "description": "Prova scritta sugli argomenti principali."
   }
 ]

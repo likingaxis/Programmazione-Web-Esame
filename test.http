@@ -1,0 +1,12 @@
+###
+POST http://localhost:3000/api/exams
+Content-Type: application/json
+
+{
+  "course": "Reti di Calcolatori",
+  "teacher": "Docente del corso",
+  "date": "2026-07-30",
+  "classroom": "Aula 4",
+  "type": "scritto",
+  "description": "Prova scritta sugli argomenti principali."
+}
