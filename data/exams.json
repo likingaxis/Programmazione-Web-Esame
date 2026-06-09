@@ -34,14 +34,5 @@
     "classroom": "Aula 4",
     "type": "scritto",
     "description": "Prova scritta sugli argomenti principali."
-  },
-  {
-    "id": 1781033276628,
-    "course": "Programmazione Web 2",
-    "teacher": "Loreti",
-    "date": "2222-02-22",
-    "classroom": "d",
-    "type": "scritto",
-    "description": "cacasca"
   }
 ]
