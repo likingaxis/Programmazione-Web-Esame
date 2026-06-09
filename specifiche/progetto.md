@@ -28,6 +28,10 @@ La web app dovrà permettere di:
 * filtrare gli esami per corso, anno o tipologia;
 * aggiornare dinamicamente la pagina tramite JavaScript;
 * leggere i dati da un file JSON.
+* caricare gli esami dal backend tramite chiamate HTTP;
+* aggiungere un nuovo appello tramite un form nell’area docente simulata;
+* ricevere messaggi di errore in caso di dati non validi;
+* visualizzare stati di caricamento, errore, successo e lista vuota.
 
 ## Scelte progettuali
 
@@ -73,7 +77,11 @@ Se il tempo lo permette, si possono aggiungere alcune funzionalità extra:
 * HTML
 * CSS
 * JavaScript
+* Fetch API
+* Node.js
+* Express
 * JSON
+* Git e GitHub
 
 ## Obiettivo finale
 
