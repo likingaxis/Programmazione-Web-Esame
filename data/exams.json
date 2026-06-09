@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "course": "Programmazione Web",
+    "teacher": "Pierpaolo Loreti",
+    "date": "2026-07-10",
+    "classroom": "Aula T1",
+    "type": "scritto",
+    "description": "Prova scritta con esercizi su HTML, CSS, JavaScript e backend."
+  },
+  {
+    "id": 2,
+    "course": "Basi di Dati",
+    "teacher": "Paola Vocca",
+    "date": "2026-07-15",
+    "classroom": "Aula 2",
+    "type": "scritto-orale",
+    "description": "Appello con prova scritta e successiva discussione orale."
+  },
+  {
+    "id": 3,
+    "course": "Algoritmi",
+    "teacher": "Luciano Gualà",
+    "date": "2026-07-22",
+    "classroom": "Aula Magna",
+    "type": "orale",
+    "description": "Colloquio orale sugli argomenti principali del corso."
+  }
+]
