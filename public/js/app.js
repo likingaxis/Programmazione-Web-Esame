@@ -1,5 +1,66 @@
 const examsStatus = document.querySelector("#exams-status");
 const examsList = document.querySelector("#exams-list");
+const examForm = document.querySelector("#exam-form");
+const formMessage = document.querySelector("#form-message");
+const courseInput = document.querySelector("#course");
+const teacherInput = document.querySelector("#teacher");
+const dateInput = document.querySelector("#date");
+const classroomInput = document.querySelector("#classroom");
+const typeInput = document.querySelector("#type");
+const descriptionInput = document.querySelector("#description");
+
+function showFormMessage(message) {
+  while (formMessage.firstChild) {
+    formMessage.removeChild(formMessage.firstChild);
+  }
+
+  const text = document.createTextNode(message);
+  formMessage.appendChild(text);
+}
+
+async function handleExamSubmit(event) {
+    event.preventDefault();                          //Blocca il comportamento predefinito del form senza far ricaricare la pagina
+    const newExam = {
+    course: courseInput.value,
+    teacher: teacherInput.value,
+    date: dateInput.value,
+    classroom: classroomInput.value,
+    type: typeInput.value,
+    description: descriptionInput.value
+    };
+    if (!newExam.course ||!newExam.teacher ||!newExam.date ||!newExam.classroom ||!newExam.type)
+        {
+         showFormMessage("Compila tutti i campi obbligatori.");
+         return;
+        }
+    try {
+        showFormMessage("Salvataggio appello in corso...");
+
+        const response = await fetch("/api/exams", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newExam)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+        showFormMessage(result.error);
+        return;
+        }
+
+        showFormMessage(result.message);
+        examForm.reset();
+        loadExams();
+    } catch (error) {
+        showFormMessage("Errore durante il salvataggio dell'appello.");
+        console.error(error);
+    }
+}
+
+
 function showExamsStatus(message) {
   while (examsStatus.firstChild) {
     examsStatus.removeChild(examsStatus.firstChild);
@@ -68,3 +129,4 @@ async function loadExams() {                // utile perchè il fetch sarà asin
 }
 
 
+examForm.addEventListener("submit", handleExamSubmit);
