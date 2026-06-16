@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const examsFilePath = path.join(__dirname, "data", "exams.json");
 const lessonsFilePath = path.join(__dirname, "data", "lessons.json");
+const communicationsFilePath = path.join(__dirname, "data", "communications.json");
 const app = express();
 const PORT = 3000;
 
@@ -23,9 +24,19 @@ function readLessons(){
   return JSON.parse(data);
 }
 
+function readCommunications(){
+  const data= fs.readFileSync(communicationsFilePath, "utf-8");
+  return JSON.parse(data);
+}
+
 app.get("/api/lessons", (req, res) => {
   const lessons = readLessons();
   res.json(lessons);
+});
+
+app.get("/api/communications", (req, res) => {
+  const communications = readCommunications();
+  res.json(communications);
 });
 
 app.get("/api/exams", (req, res) => {

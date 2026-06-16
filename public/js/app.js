@@ -11,6 +11,8 @@ const descriptionInput = document.querySelector("#description");
 const loadExamsButton = document.querySelector("#load-exams-button");
 const lessonsStatus = document.querySelector("#lessons-status");
 const lessonsList = document.querySelector("#lessons-list");
+const communicationsStatus = document.querySelector("#communications-status");
+const communicationsList = document.querySelector("#communications-list");
 
 function showFormMessage(message) {
   while (formMessage.firstChild) {
@@ -120,6 +122,49 @@ function showLessonsStatus(message) {
   lessonsStatus.appendChild(text);
 }
 
+function showCommunicationsStatus(message) {
+  while (communicationsStatus.firstChild) {
+    communicationsStatus.removeChild(communicationsStatus.firstChild);
+  }
+  const text = document.createTextNode(message);
+  communicationsStatus.appendChild(text);
+}
+
+function renderCommunications(communications) {
+  communicationsList.innerHTML = "";
+
+  if (communications.length === 0) {
+    communicationsStatus.textContent = "Nessuna comunicazione disponibile.";
+    return;
+  }
+  communications.sort((a, b) => new Date(b.date) - new Date(a.date));
+  communicationsStatus.textContent = "Comunicazioni caricate correttamente.";
+
+  communicationsList.innerHTML = `
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Titolo</th>
+            <th>Data</th>
+            <th>Categoria</th>
+            <th>Contenuto</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${communications.map((communication) => `
+            <tr>
+              <td>${communication.title}</td>
+              <td>${communication.date}</td>
+              <td>${communication.category}</td>
+              <td>${communication.content}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
 
 
 function renderLessons(lessons) {
@@ -172,6 +217,22 @@ async function loadLessons() {
 }
 
 loadLessons();
+
+async function loadCommunications() {
+  try {
+    showCommunicationsStatus("Caricamento comunicazioni...");
+    const response = await fetch("/api/communications");
+    if (!response.ok) {
+      throw new Error("Errore HTTP: " + response.status);
+    }
+    const communications = await response.json();
+    renderCommunications(communications);
+  } catch (error) {
+    showCommunicationsStatus("Errore nel caricamento delle comunicazioni.");
+    console.error(error);
+  }
+}
+loadCommunications();
 
 async function loadExams() {                // utile perchè il fetch sarà asincrono 
   try {
