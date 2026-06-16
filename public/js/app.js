@@ -9,6 +9,8 @@ const classroomInput = document.querySelector("#classroom");
 const typeInput = document.querySelector("#type");
 const descriptionInput = document.querySelector("#description");
 const loadExamsButton = document.querySelector("#load-exams-button");
+const lessonsStatus = document.querySelector("#lessons-status");
+const lessonsList = document.querySelector("#lessons-list");
 
 function showFormMessage(message) {
   while (formMessage.firstChild) {
@@ -109,6 +111,67 @@ function renderExams(exams) {
   `;
 }
 
+function showLessonsStatus(message) {
+  while (lessonsStatus.firstChild) {
+    lessonsStatus.removeChild(lessonsStatus.firstChild);
+  }
+
+  const text = document.createTextNode(message);
+  lessonsStatus.appendChild(text);
+}
+
+
+
+function renderLessons(lessons) {
+  lessonsList.innerHTML = "";
+  if (lessons.length === 0) {
+    showLessonsStatus("Nessuna lezione disponibile.");
+    return;
+  }
+  lessonsList.innerHTML =
+    `<div class="table-container">
+      <table>
+        <thead>
+          <tr>
+          <th>giorno</th>
+          <th>orario</th>
+          <th>docente</th>
+          <th>corso</th>
+          <th>aula</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${lessons.map((lesson) => `
+            <tr>
+              <td>${lesson.day}</td>
+              <td>${lesson.time}</td>
+              <td>${lesson.teacher}</td>
+              <td>${lesson.subject}</td>
+              <td>${lesson.classroom}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+async function loadLessons() {
+  try {
+    showLessonsStatus("Caricamento orari...");
+    const response = await fetch("/api/lessons");
+    if (!response.ok) {
+      throw new Error("Errore HTTP: " + response.status);
+    }
+    const lessons = await response.json();
+    renderLessons(lessons);
+  } catch (error) {
+    showLessonsStatus("Errore nel caricamento degli orari.");
+    console.error(error);
+  }
+}
+
+loadLessons();
 
 async function loadExams() {                // utile perchè il fetch sarà asincrono 
   try {

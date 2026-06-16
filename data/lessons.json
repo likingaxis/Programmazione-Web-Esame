@@ -1,0 +1,37 @@
+[
+  {
+    "day": "02-03-2026",
+    "time": "15:00 - 17:00",
+    "teacher": "CAMARRI PAOLO",
+    "subject": "FISICA",
+    "classroom": "Aula 28"
+  },
+  {
+    "day": "03-03-2026",
+    "time": "16:00 - 18:00",
+    "teacher": "CROCE DANILO",
+    "subject": "INFORMATION RETRIEVAL",
+    "classroom": "Aula 13"
+  },
+  {
+    "day": "04-03-2026",
+    "time": "09:00 - 11:00",
+    "teacher": "GAMBOSI GIORGIO, ROSSI GIANLUCA",
+    "subject": "DATA MINING",
+    "classroom": "Aula 5 - PP2"
+  },
+  {
+    "day": "06-03-2026",
+    "time": "11:00 - 13:00",
+    "teacher": "CROCE DANILO",
+    "subject": "INFORMATION RETRIEVAL",
+    "classroom": "Aula 13"
+  },
+  {
+    "day": "06-03-2026",
+    "time": "14:00 - 16:00",
+    "teacher": "CAMARRI PAOLO",
+    "subject": "FISICA",
+    "classroom": "Aula 28"
+  }
+]
