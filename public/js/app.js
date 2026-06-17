@@ -95,6 +95,7 @@ function renderExams(exams) {
             <th>Data</th>
             <th>Aula</th>
             <th>Tipologia</th>
+            <th>Descrizione</th>
           </tr>
         </thead>
         <tbody>
@@ -105,6 +106,7 @@ function renderExams(exams) {
               <td>${exam.date}</td>
               <td>${exam.classroom}</td>
               <td>${exam.type}</td>
+              <td>${exam.description || ""}</td>
             </tr>
           `).join("")}
         </tbody>
