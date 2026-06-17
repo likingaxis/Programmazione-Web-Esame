@@ -5,7 +5,7 @@
 Il progetto consiste in una web app a singola pagina pensata per studenti già iscritti al corso di Informatica.
 L’obiettivo è simulare un piccolo portale dove è possibile consultare gli esami caricati dai professori.
 
-Il sito permette di visualizzare una lista di esamiconsultarne le informazioni principali.
+Il sito permette di visualizzare una lista di esami e consultarne le informazioni principali.
 
 ## Obiettivo del progetto
 
