@@ -1,5 +1,8 @@
+// selezione degli elementi relativi agli appelli
 const examsStatus = document.querySelector("#exams-status");
 const examsList = document.querySelector("#exams-list");
+
+//selezione relativa alla parte del form
 const examForm = document.querySelector("#exam-form");
 const formMessage = document.querySelector("#form-message");
 const courseInput = document.querySelector("#course");
@@ -9,11 +12,17 @@ const classroomInput = document.querySelector("#classroom");
 const typeInput = document.querySelector("#type");
 const descriptionInput = document.querySelector("#description");
 const loadExamsButton = document.querySelector("#load-exams-button");
+
+// selezione degli elementi relativi alle lezioni
 const lessonsStatus = document.querySelector("#lessons-status");
 const lessonsList = document.querySelector("#lessons-list");
+
+// selezione degli elementi relativi alle comunicazioni
 const communicationsStatus = document.querySelector("#communications-status");
 const communicationsList = document.querySelector("#communications-list");
 
+
+// Funzione di visualizzazione dei messaggi 
 function showFormMessage(message) {
   while (formMessage.firstChild) {
     formMessage.removeChild(formMessage.firstChild);
@@ -23,8 +32,39 @@ function showFormMessage(message) {
   formMessage.appendChild(text);
 }
 
+function showExamsStatus(message) {
+  while (examsStatus.firstChild) {
+    examsStatus.removeChild(examsStatus.firstChild);
+  }
+
+  const text = document.createTextNode(message);
+  examsStatus.appendChild(text);
+}
+
+
+function showLessonsStatus(message) {
+  while (lessonsStatus.firstChild) {
+    lessonsStatus.removeChild(lessonsStatus.firstChild);
+  }
+
+  const text = document.createTextNode(message);
+  lessonsStatus.appendChild(text);
+}
+
+
+function showCommunicationsStatus(message) {
+  while (communicationsStatus.firstChild) {
+    communicationsStatus.removeChild(communicationsStatus.firstChild);
+  }
+  const text = document.createTextNode(message);
+  communicationsStatus.appendChild(text);
+}
+
+
+// invio del form se attivato da eventlistener
+
 async function handleExamSubmit(event) {
-    event.preventDefault();                          //Blocca il comportamento predefinito del form senza far ricaricare la pagina
+    event.preventDefault();                          //non fa ricaricare la pagina al form
     const newExam = {
     course: courseInput.value,
     teacher: teacherInput.value,
@@ -66,15 +106,6 @@ async function handleExamSubmit(event) {
 }
 
 
-function showExamsStatus(message) {
-  while (examsStatus.firstChild) {
-    examsStatus.removeChild(examsStatus.firstChild);
-  }
-
-  const text = document.createTextNode(message);
-  examsStatus.appendChild(text);
-}
-
 function renderExams(exams) {
   examsList.innerHTML = "";
 
@@ -115,22 +146,7 @@ function renderExams(exams) {
   `;
 }
 
-function showLessonsStatus(message) {
-  while (lessonsStatus.firstChild) {
-    lessonsStatus.removeChild(lessonsStatus.firstChild);
-  }
 
-  const text = document.createTextNode(message);
-  lessonsStatus.appendChild(text);
-}
-
-function showCommunicationsStatus(message) {
-  while (communicationsStatus.firstChild) {
-    communicationsStatus.removeChild(communicationsStatus.firstChild);
-  }
-  const text = document.createTextNode(message);
-  communicationsStatus.appendChild(text);
-}
 
 function renderCommunications(communications) {
   communicationsList.innerHTML = "";
@@ -139,6 +155,7 @@ function renderCommunications(communications) {
     communicationsStatus.textContent = "Nessuna comunicazione disponibile.";
     return;
   }
+
   communications.sort((a, b) => new Date(b.date) - new Date(a.date));
   communicationsStatus.textContent = "Comunicazioni caricate correttamente.";
 
@@ -254,7 +271,6 @@ async function loadExams() {                // utile perchè il fetch sarà asin
     console.error(error);
   }
 }
-
 
 loadExamsButton.addEventListener("click", loadExams);
 examForm.addEventListener("submit", handleExamSubmit);
