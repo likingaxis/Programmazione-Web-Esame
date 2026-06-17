@@ -1,5 +1,5 @@
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;   /* considero padding e border*/
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: inherit;      /* eredito il colore dal body  */
   text-decoration: none;
 }
 
@@ -25,7 +25,7 @@ textarea {
 header {
   background-color: #1f3a5f;
   color: white;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem;      /* uso rem per facilità andando a prendere la dimensione dal font della radice */
   text-align: center;
 }
 
@@ -37,7 +37,7 @@ header p {
   margin: 0 0 1.5rem;
 }
 nav {
-  display: flex;
+  display: flex;                 /* uso flexbox per allineare i link in ordine orizzontale e con wrap */
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -72,8 +72,10 @@ section h2 {
   margin-top: 0;
   color: #1f3a5f;
 }
+
 form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -98,7 +100,7 @@ textarea:focus {
   border-color: #1f3a5f;
 }
 button {
-  cursor: pointer;
+  cursor: pointer;    /* manina cliccabile */
   border: none;
   border-radius: 8px;
   padding: 0.7rem 1rem;
@@ -118,14 +120,13 @@ footer {
   color: white;
 }
 
- /* Applica queste regole solo quando lo schermo è largo al massimo 700px approccio desktop first */
+ /* Applico delle media queries seguendo una logica desktop first */
 @media (max-width: 700px) {
   header {
     padding: 1.5rem 1rem;
   }
 
   nav {
-    
     flex-direction: column;
     align-items: stretch;
   }
@@ -139,13 +140,13 @@ footer {
   }
 }
 .table-container {
-  overflow-x: auto;
+  overflow-x: auto;      /* aggiunge scrolling orizzontale */ 
   margin-top: 1rem;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse;    /* rimuove lo spazio tra le celle per la tabella */
 }
 
 th,
