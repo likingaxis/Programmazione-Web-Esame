@@ -24,27 +24,18 @@
                 <h2>Appelli d'esame</h2>
                 <p>Consulta le date degli appelli disponibili e le informazioni principali.</p>
                     <button id="load-exams-button" type="button">Mostra appelli</button>
-                    <!-- poi farò un addeventlistener su javascript per il submit del form e inviera una richiesta al server -->
-
+                    <!-- su Javascript è presente un addeventlistener per il submit del form e inviera una richiesta al server -->
                 <div id="exams-status" role="status">
-                    Gli appelli saranno caricati qui.
                 </div>
-
                 <div id="exams-list">
                 </div>
         </section>
-
         <section id="orari">
                 <h2>Orari delle lezioni</h2>
                 <p>Visualizza gli orari settimanali dei principali insegnamenti.</p>
-
                 <div id="lessons-status" role="status">
-                    Gli orari saranno caricati qui.
                 </div>
-
                 <div id="lessons-list">
-                    <p>Gli orari saranno disponibili in questa sezione.</p>
-
                 </div>
         </section>
 
@@ -52,60 +43,49 @@
                 <h2>Comunicazioni</h2>
                 <p>Avvisi e comunicazioni importanti per gli studenti.</p>
                 <div id="communications-status" role="status">
-                    Le comunicazioni saranno caricate qui.
                 </div>
                 <div id="communications-list">
-                    <p>Le comunicazioni saranno disponibili in questa sezione.</p>
                 </div>
         </section>
 
         <section id="area-docente">
                 <h2>Area docente simulata</h2>
-                <p>Inserisci un nuovo appello d'esame. L'area non prevede login nella versione base.</p>
-
+                <p>Inserisci un nuovo appello d'esame.</p>
                 <form id="exam-form">
                     <div>
-                    <label for="course">Nome del corso</label>
-                    <input type="text" id="course" name="course" required>
+                        <label for="course">Nome del corso</label>
+                        <input type="text" id="course" name="course" required>
                     </div>
-
                     <div>
-                    <label for="teacher">Docente</label>
-                    <input type="text" id="teacher" name="teacher" required>
+                        <label for="teacher">Docente</label>
+                        <input type="text" id="teacher" name="teacher" required>
                     </div>
-
                     <div>
-                    <label for="date">Data</label>
-                    <input type="date" id="date" name="date" required>
+                        <label for="date">Data</label>
+                        <input type="date" id="date" name="date" required>
                     </div>
-
                     <div>
-                    <label for="classroom">Aula</label>
-                    <input type="text" id="classroom" name="classroom" required>
+                        <label for="classroom">Aula</label>
+                        <input type="text" id="classroom" name="classroom" required>
                     </div>
-
                     <div>
-                    <label for="type">Tipologia</label>
-                    <select id="type" name="type" required>
-                        <option value="">Seleziona una tipologia</option>
-                        <option value="scritto">Scritto</option>
-                        <option value="orale">Orale</option>
-                        <option value="scritto-orale">Scritto e orale</option>
-                    </select>
+                        <label for="type">Tipologia</label>
+                        <select id="type" name="type" required>
+                            <option value="">Seleziona una tipologia</option>
+                            <option value="scritto">Scritto</option>
+                            <option value="orale">Orale</option>
+                            <option value="scritto-orale">Scritto e orale</option>
+                        </select>
                     </div>
-
                     <div>
-                    <label for="description">Descrizione</label>
-                    <textarea id="description" name="description" rows="4"></textarea>
+                        <label for="description">Descrizione</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
                     </div>
-
                     <button type="submit">Aggiungi appello</button>
                 </form>
-
                 <p id="form-message"></p>
         </section>
     </main>
-
     <footer>
         <p> progetto per l'esame di Programmazione Web AA 2025/2026</p>
     </footer>
