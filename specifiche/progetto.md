@@ -5,7 +5,7 @@
 Il progetto consiste in una web app a singola pagina pensata per studenti già iscritti al corso di Informatica.
 L’obiettivo è simulare un piccolo portale dove è possibile consultare gli esami caricati dai professori.
 
-Il sito permette di visualizzare una lista di esami, cercarli, filtrarli e consultarne le informazioni principali.
+Il sito permette di visualizzare una lista di esami e consultarne le informazioni principali.
 
 ## Obiettivo del progetto
 
@@ -73,7 +73,7 @@ Se il tempo lo permette, si possono aggiungere alcune funzionalità extra:
 * messaggio quando nessun esame corrisponde alla ricerca;
 
 
-## Cose utilizzate
+## Tecnologie utilizzate
 
 * HTML
 * CSS
@@ -83,6 +83,36 @@ Se il tempo lo permette, si possono aggiungere alcune funzionalità extra:
 * Express
 * JSON
 * Git e GitHub
+
+## Mockup minimale
+
+Header con titolo e navigazione.
+Sezione Appelli con pulsante “Mostra appelli”, messaggio di stato e tabella generata dinamicamente.
+Sezione Orari con tabella degli insegnamenti.
+Sezione Comunicazioni con tabella degli avvisi.
+Sezione Area docente con form per inserire un nuovo appello.
+
+## Scenari di test
+
+1. Caricamento appelli
+   - Azione: cliccare su “Mostra appelli”.
+   - Risultato atteso: viene mostrata una tabella con gli appelli disponibili.
+
+2. Inserimento appello valido
+   - Azione: compilare tutti i campi obbligatori del form docente e inviare.
+   - Risultato atteso: il server risponde con 201 e il nuovo appello viene salvato.
+
+3. Inserimento appello non valido
+   - Azione: inviare il form con campi obbligatori mancanti.
+   - Risultato atteso: viene mostrato un messaggio di errore e il server restituisce 400.
+
+4. Appello inesistente
+   - Azione: richiedere /api/exams/999.
+   - Risultato atteso: il server restituisce 404 con messaggio “Appello non trovato”.
+
+5. Errore di caricamento
+   - Azione: simulare server non disponibile o rotta errata.
+   - Risultato atteso: il frontend mostra un messaggio di errore.
 
 ## Obiettivo finale
 

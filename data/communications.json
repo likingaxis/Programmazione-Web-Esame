@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Sospensione lezioni per festività",
+    "date": "2026-04-01",
+    "category": "Didattica",
+    "content": "Si comunica agli studenti che le lezioni saranno sospese nei giorni previsti dal calendario accademico per le festività pasquali."
+  },
+  {
+    "id": 2,
+    "title": "Apertura iscrizioni agli appelli estivi",
+    "date": "2026-05-10",
+    "category": "Esami",
+    "content": "Sono aperte le iscrizioni agli appelli della sessione estiva. Gli studenti possono prenotarsi tramite il portale studenti entro le scadenze indicate."
+  },
+  {
+    "id": 3,
+    "title": "Variazione aula lezione di Data Mining",
+    "date": "2026-03-18",
+    "category": "Orario lezioni",
+    "content": "La lezione di Data Mining prevista per il giorno 18 marzo si svolgerà in Aula 12 invece che in Aula 5 - PP2."
+  },
+  {
+    "id": 4,
+    "title": "Seminario su Intelligenza Artificiale",
+    "date": "2026-04-15",
+    "category": "Eventi",
+    "content": "Il Dipartimento organizza un seminario introduttivo sull'Intelligenza Artificiale e le sue applicazioni. L'incontro è aperto a tutti gli studenti."
+  },
+  {
+    "id": 5,
+    "title": "Manutenzione piattaforma didattica",
+    "date": "2026-05-22",
+    "category": "Avvisi",
+    "content": "La piattaforma didattica non sarà disponibile dalle ore 18:00 alle ore 22:00 per attività di manutenzione programmata."
+  }
+]

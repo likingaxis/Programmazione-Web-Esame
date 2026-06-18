@@ -1,5 +1,8 @@
+// selezione degli elementi relativi agli appelli
 const examsStatus = document.querySelector("#exams-status");
 const examsList = document.querySelector("#exams-list");
+
+//selezione relativa alla parte del form
 const examForm = document.querySelector("#exam-form");
 const formMessage = document.querySelector("#form-message");
 const courseInput = document.querySelector("#course");
@@ -10,6 +13,16 @@ const typeInput = document.querySelector("#type");
 const descriptionInput = document.querySelector("#description");
 const loadExamsButton = document.querySelector("#load-exams-button");
 
+// selezione degli elementi relativi alle lezioni
+const lessonsStatus = document.querySelector("#lessons-status");
+const lessonsList = document.querySelector("#lessons-list");
+
+// selezione degli elementi relativi alle comunicazioni
+const communicationsStatus = document.querySelector("#communications-status");
+const communicationsList = document.querySelector("#communications-list");
+
+
+// Funzione di visualizzazione dei messaggi 
 function showFormMessage(message) {
   while (formMessage.firstChild) {
     formMessage.removeChild(formMessage.firstChild);
@@ -19,8 +32,39 @@ function showFormMessage(message) {
   formMessage.appendChild(text);
 }
 
+function showExamsStatus(message) {
+  while (examsStatus.firstChild) {
+    examsStatus.removeChild(examsStatus.firstChild);
+  }
+
+  const text = document.createTextNode(message);
+  examsStatus.appendChild(text);
+}
+
+
+function showLessonsStatus(message) {
+  while (lessonsStatus.firstChild) {
+    lessonsStatus.removeChild(lessonsStatus.firstChild);
+  }
+
+  const text = document.createTextNode(message);
+  lessonsStatus.appendChild(text);
+}
+
+
+function showCommunicationsStatus(message) {
+  while (communicationsStatus.firstChild) {
+    communicationsStatus.removeChild(communicationsStatus.firstChild);
+  }
+  const text = document.createTextNode(message);
+  communicationsStatus.appendChild(text);
+}
+
+
+// invio del form se attivato da eventlistener
+
 async function handleExamSubmit(event) {
-    event.preventDefault();                          //Blocca il comportamento predefinito del form senza far ricaricare la pagina
+    event.preventDefault();                          //non fa ricaricare la pagina al form
     const newExam = {
     course: courseInput.value,
     teacher: teacherInput.value,
@@ -62,15 +106,6 @@ async function handleExamSubmit(event) {
 }
 
 
-function showExamsStatus(message) {
-  while (examsStatus.firstChild) {
-    examsStatus.removeChild(examsStatus.firstChild);
-  }
-
-  const text = document.createTextNode(message);
-  examsStatus.appendChild(text);
-}
-
 function renderExams(exams) {
   examsList.innerHTML = "";
 
@@ -91,6 +126,7 @@ function renderExams(exams) {
             <th>Data</th>
             <th>Aula</th>
             <th>Tipologia</th>
+            <th>Descrizione</th>
           </tr>
         </thead>
         <tbody>
@@ -101,6 +137,7 @@ function renderExams(exams) {
               <td>${exam.date}</td>
               <td>${exam.classroom}</td>
               <td>${exam.type}</td>
+              <td>${exam.description || ""}</td>
             </tr>
           `).join("")}
         </tbody>
@@ -109,6 +146,112 @@ function renderExams(exams) {
   `;
 }
 
+
+
+function renderCommunications(communications) {
+  communicationsList.innerHTML = "";
+
+  if (communications.length === 0) {
+    communicationsStatus.textContent = "Nessuna comunicazione disponibile.";
+    return;
+  }
+
+  communications.sort((a, b) => new Date(b.date) - new Date(a.date));
+  communicationsStatus.textContent = "Comunicazioni caricate correttamente.";
+
+  communicationsList.innerHTML = `
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Titolo</th>
+            <th>Data</th>
+            <th>Categoria</th>
+            <th>Contenuto</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${communications.map((communication) => `
+            <tr>
+              <td>${communication.title}</td>
+              <td>${communication.date}</td>
+              <td>${communication.category}</td>
+              <td>${communication.content}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+
+function renderLessons(lessons) {
+  lessonsList.innerHTML = "";
+  if (lessons.length === 0) {
+    showLessonsStatus("Nessuna lezione disponibile.");
+    return;
+  }
+  lessonsList.innerHTML =
+    `<div class="table-container">
+      <table>
+        <thead>
+          <tr>
+          <th>giorno</th>
+          <th>orario</th>
+          <th>docente</th>
+          <th>corso</th>
+          <th>aula</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${lessons.map((lesson) => `
+            <tr>
+              <td>${lesson.day}</td>
+              <td>${lesson.time}</td>
+              <td>${lesson.teacher}</td>
+              <td>${lesson.subject}</td>
+              <td>${lesson.classroom}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+async function loadLessons() {
+  try {
+    showLessonsStatus("Caricamento orari...");
+    const response = await fetch("/api/lessons");
+    if (!response.ok) {
+      throw new Error("Errore HTTP: " + response.status);
+    }
+    const lessons = await response.json();
+    renderLessons(lessons);
+  } catch (error) {
+    showLessonsStatus("Errore nel caricamento degli orari.");
+    console.error(error);
+  }
+}
+
+loadLessons();
+
+async function loadCommunications() {
+  try {
+    showCommunicationsStatus("Caricamento comunicazioni...");
+    const response = await fetch("/api/communications");
+    if (!response.ok) {
+      throw new Error("Errore HTTP: " + response.status);
+    }
+    const communications = await response.json();
+    renderCommunications(communications);
+  } catch (error) {
+    showCommunicationsStatus("Errore nel caricamento delle comunicazioni.");
+    console.error(error);
+  }
+}
+loadCommunications();
 
 async function loadExams() {                // utile perchè il fetch sarà asincrono 
   try {
@@ -128,7 +271,6 @@ async function loadExams() {                // utile perchè il fetch sarà asin
     console.error(error);
   }
 }
-
 
 loadExamsButton.addEventListener("click", loadExams);
 examForm.addEventListener("submit", handleExamSubmit);
