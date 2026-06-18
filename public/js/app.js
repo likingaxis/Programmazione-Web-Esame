@@ -228,6 +228,7 @@ async function loadLessons() {
       throw new Error("Errore HTTP: " + response.status);
     }
     const lessons = await response.json();
+    showLessonsStatus("Caricamento eseguito correttamente");
     renderLessons(lessons);
   } catch (error) {
     showLessonsStatus("Errore nel caricamento degli orari.");
