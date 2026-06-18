@@ -116,3 +116,9 @@ le serate si sono poi svolte con un ripasso dei concetti teorici dietro ciò che
 alla consegna del progetto ho inviato tutto a chat gpt per avere una valutazione del lavoro svolto
 - ha aspramente criticato la gestione degli errori
 - ho fatto dei commit finali di correzione varie
+
+È stato infine aggiunto con render una versione hostata online del server node js
+
+https://programmazione-web-esame.onrender.com
+
+infine è stato aggiunto il middleware morgan per leggere i log del server

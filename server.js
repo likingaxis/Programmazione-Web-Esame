@@ -1,13 +1,16 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const morgan = require("morgan");
+
 const examsFilePath = path.join(__dirname, "data", "exams.json");
 const lessonsFilePath = path.join(__dirname, "data", "lessons.json");
 const communicationsFilePath = path.join(__dirname, "data", "communications.json");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// AGGIUNTA MIDDLEWERE PER PARSING JSON E SERVIRE FILE STATICI
+// AGGIUNTA MIDDLEWERE PER PARSING JSON E SERVIRE FILE STATICI E MORGAN
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.static("public"));
 
