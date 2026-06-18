@@ -5,7 +5,7 @@ const examsFilePath = path.join(__dirname, "data", "exams.json");
 const lessonsFilePath = path.join(__dirname, "data", "lessons.json");
 const communicationsFilePath = path.join(__dirname, "data", "communications.json");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // AGGIUNTA MIDDLEWERE PER PARSING JSON E SERVIRE FILE STATICI
 app.use(express.json());
