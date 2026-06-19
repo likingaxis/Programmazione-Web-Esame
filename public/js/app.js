@@ -21,6 +21,23 @@ const lessonsList = document.querySelector("#lessons-list");
 const communicationsStatus = document.querySelector("#communications-status");
 const communicationsList = document.querySelector("#communications-list");
 
+const dark= document.querySelector("#dark-mode");
+
+let status=false;
+
+function darkMode()
+{
+  if(status===false){
+    document.body.classList.toggle("dark");
+    dark.textContent="☀️";
+    status=true;
+  }
+  else{
+    document.body.classList.remove("dark");
+    dark.textContent="🌑";
+    status=false;
+  }
+}
 
 // Funzione di visualizzazione dei messaggi 
 function showFormMessage(message) {
@@ -275,3 +292,4 @@ async function loadExams() {                // utile perchè il fetch sarà asin
 
 loadExamsButton.addEventListener("click", loadExams);
 examForm.addEventListener("submit", handleExamSubmit);
+dark.addEventListener("click", darkMode);

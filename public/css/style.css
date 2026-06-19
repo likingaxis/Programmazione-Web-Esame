@@ -2,6 +2,70 @@
   box-sizing: border-box;   /* considero padding e border*/
 }
 
+/* dark mode */
+body.dark {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+body.dark header,
+body.dark footer {
+  background-color: #0f172a;
+  color: white;
+}
+
+body.dark section {
+  background-color: #1e293b;
+  color: #f4f4f4;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+}
+
+body.dark section h2 {
+  color: #93c5fd;
+}
+
+body.dark nav .bottoni {
+  background-color: #334155;
+  color: white;
+}
+
+body.dark nav .bottoni:hover {
+  background-color: #475569;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background-color: #0f172a;
+  color: white;
+  border-color: #475569;
+}
+
+body.dark input:focus,
+body.dark select:focus,
+body.dark textarea:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #93c5fd;
+}
+
+body.dark button {
+  background-color: #334155;
+  color: white;
+}
+
+body.dark button:hover {
+  background-color: #475569;
+}
+
+body.dark th {
+  background-color: #0f172a;
+  color: white;
+}
+
+body.dark td {
+  border-color: #475569;
+}
+
 body {
   margin: 0;
   font-family: cursive, sans-serif;
@@ -43,7 +107,7 @@ nav {
   gap: 0.75rem;
 }
 
-nav a {
+nav .bottoni{
   background-color: white;
   color: #1f3a5f;
   padding: 0.5rem 0.9rem;
@@ -51,7 +115,7 @@ nav a {
   font-weight: bold;
 }
 
-nav a:hover {
+nav .bottoni:hover {
   background-color: #dbeafe;
 }
 main {
