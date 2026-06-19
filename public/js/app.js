@@ -24,6 +24,30 @@ const communicationsList = document.querySelector("#communications-list");
 const dark= document.querySelector("#dark-mode");
 
 let status=false;
+let status2=true;
+
+function switchAppelli() {
+
+  if (status2 === true) {
+
+    loadExams();
+
+  } else {
+
+    nascondiAppelli();
+
+  }
+}
+
+
+function nascondiAppelli()
+{
+  examsList.innerHTML = "";
+  showExamsStatus("Appelli nascosti.");
+  loadExamsButton.textContent = "Mostra Appelli";
+  status2 = true;
+}
+
 
 function darkMode()
 {
@@ -132,7 +156,7 @@ function renderExams(exams) {
   }
 
   showExamsStatus("Appelli caricati correttamente.");
-
+  loadExamsButton.textContent="nascondi appelli";
   examsList.innerHTML = `
     <div class="table-container">
       <table>
@@ -282,7 +306,7 @@ async function loadExams() {                // utile perchè il fetch sarà asin
     }
 
     const exams = await response.json();
-
+    status2=false;
     renderExams(exams);
   } catch (error) {
     showExamsStatus("Errore nel caricamento degli appelli.");
@@ -290,6 +314,6 @@ async function loadExams() {                // utile perchè il fetch sarà asin
   }
 }
 
-loadExamsButton.addEventListener("click", loadExams);
+loadExamsButton.addEventListener("click", switchAppelli);
 examForm.addEventListener("submit", handleExamSubmit);
 dark.addEventListener("click", darkMode);
