@@ -149,6 +149,7 @@ async function handleExamSubmit(event) {
 
 function renderExams(exams) {
   examsList.innerHTML = "";
+  
 
   if (exams.length === 0) {
     showExamsStatus("Nessun appello disponibile.");
@@ -295,7 +296,7 @@ async function loadCommunications() {
 }
 loadCommunications();
 
-async function loadExams() {                // utile perchè il fetch sarà asincrono 
+async function loadExams() {                // utile perchè il fetch è asincrono 
   try {
     showExamsStatus("Caricamento appelli...");
 

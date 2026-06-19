@@ -34,5 +34,14 @@
     "classroom": "Aula 4",
     "type": "scritto",
     "description": "Prova scritta sugli argomenti principali."
+  },
+  {
+    "id": 1781875316537,
+    "course": "Programmazione Web 5",
+    "teacher": "Loreti 5",
+    "date": "2026-12-29",
+    "classroom": "Ufficio",
+    "type": "scritto-orale",
+    "description": "Esame di Programmazione Web 5, portare la pizza rossa per raggiungere la sufficienza"
   }
 ]
