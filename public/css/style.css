@@ -68,7 +68,8 @@ body.dark td {
 
 body {
   margin: 0;
-  font-family: 'Brush Script MT', cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-style: bold;
   line-height: 1.5;
   background-color: #f4f6f8;
   color: #222;
