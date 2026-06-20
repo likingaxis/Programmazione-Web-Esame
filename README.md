@@ -111,6 +111,8 @@ puoi crearmi una tabella operativa che dovrò seguire per le prossime 10 serate 
 
 ### Serate fino alla conclusione del progetto
 le serate si sono poi svolte con un ripasso dei concetti teorici dietro ciò che stavo facendo e scrittura di codice, ho sfruttato la tabella di marcia proposta da chat gpt per lavorare e non uscire fuori traccia richiesta dall'insegnante
+* Chat GPT è stato utile per definire degli aspetti estetici del sito
+* Copilot è stato utilizzato per velocizzare la fase di scrittura di codice
 
 ### Fase finale
 alla consegna del progetto ho inviato tutto a chat gpt per avere una valutazione del lavoro svolto

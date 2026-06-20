@@ -134,7 +134,7 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-app.use((req, res) => {
+app.use((req, res) => { 
   res.status(404).json({
     error: "Rotta non trovata"
   });

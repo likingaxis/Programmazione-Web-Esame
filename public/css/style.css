@@ -4,66 +4,67 @@
 
 /* dark mode */
 body.dark {
-  background-color: #121212;
-  color: #f4f4f4;
+  background-color: #131313;
+  color: #cccccc;
 }
 
 body.dark header,
 body.dark footer {
-  background-color: #0f172a;
-  color: white;
+  background-color: #003216;
+  color: #cccccc;
 }
 
 body.dark section {
-  background-color: #1e293b;
-  color: #f4f4f4;
+  background-color: #003216;
+  color: #cccccc;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
 }
 
 body.dark section h2 {
-  color: #93c5fd;
+  color: #cccccc;
 }
 
 body.dark nav .bottoni {
-  background-color: #334155;
-  color: white;
+  background-color: #1b442d;
+  color: #cccccc;
 }
 
 body.dark nav .bottoni:hover {
-  background-color: #475569;
+  background-color: #262626;
 }
 
 body.dark input,
 body.dark select,
 body.dark textarea {
-  background-color: #0f172a;
-  color: white;
+  background-color: #003216;
+  color: #cccccc;
   border-color: #475569;
 }
 
 body.dark input:focus,
 body.dark select:focus,
 body.dark textarea:focus {
-  outline: 2px solid #93c5fd;
-  border-color: #93c5fd;
+  outline: 2px solid #005525;
+  border-color: rgb(0, 76, 33);
 }
 
 body.dark button {
-  background-color: #334155;
-  color: white;
+  background-color: #1b442d;
+  color: #cccccc;
 }
 
 body.dark button:hover {
-  background-color: #475569;
+  background-color: #262626;
 }
 
 body.dark th {
-  background-color: #0f172a;
-  color: white;
+  background-color: #225639;
+  color: #cccccc;
 }
 
 body.dark td {
-  border-color: #475569;
+  background-color: #1b442d;
+  border-color: #cccccc;
 }
 
 body {
@@ -72,7 +73,7 @@ body {
   font-style: bold;
   line-height: 1.5;
   background-color: #f4f6f8;
-  color: #222;
+  color: #003216;
 }
 
 a {
@@ -88,7 +89,7 @@ textarea {
 }
 
 header {
-  background-color: #1f3a5f;
+  background-color: #005023;
   color: white;
   padding: 2rem 1rem;      /* uso rem per facilità andando a prendere la dimensione dal font della radice */
   text-align: center;
@@ -110,7 +111,7 @@ nav {
 
 nav .bottoni{
   background-color: white;
-  color: #1f3a5f;
+  color: #005023;
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
   font-weight: bold;
@@ -135,7 +136,7 @@ section {
 
 section h2 {
   margin-top: 0;
-  color: #1f3a5f;
+  color: #005328;
 }
 
 form {
@@ -161,7 +162,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 2px solid #1f3a5f;
+  outline: 2px solid #005023;
   border-color: #1f3a5f;
 }
 button {
@@ -169,19 +170,19 @@ button {
   border: none;
   border-radius: 8px;
   padding: 0.7rem 1rem;
-  background-color: #1f3a5f;
+  background-color: #005023;
   color: white;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: #16304f;
+  background-color: #005023;
 }
 
 footer {
   text-align: center;
   padding: 1.5rem;
-  background-color: #1f3a5f;
+  background-color: #005023;
   color: white;
 }
 
@@ -193,7 +194,7 @@ footer {
 
   nav {
     flex-direction: column;
-    align-items: stretch;
+    align-items: stretch; 
   }
 
   nav a {
@@ -222,6 +223,6 @@ td {
 }
 
 th {
-  background-color: #1f3a5f;
+  background-color: #005023;
   color: white;
 }

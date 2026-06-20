@@ -15,8 +15,7 @@ L’obiettivo è realizzare un sito semplice ma completo, utile per ripassare gl
 * stile e layout con CSS;
 * interazione con JavaScript;
 * gestione dinamica dei dati;
-* lettura dei dati da file JSON;
-* organizzazione del codice in modo chiaro.
+* lettura dei dati da file JSON.
 
 ## Funzionalità principali
 
