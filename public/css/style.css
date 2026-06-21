@@ -76,6 +76,7 @@ body {
   color: #003216;
 }
 
+
 a {
   color: inherit;      /* eredito il colore dal body  */
   text-decoration: none;
@@ -93,6 +94,7 @@ header {
   color: white;
   padding: 2rem 1rem;      /* uso rem per facilità andando a prendere la dimensione dal font della radice */
   text-align: center;
+  
 }
 
 header h1 {
