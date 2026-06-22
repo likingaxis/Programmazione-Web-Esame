@@ -2,10 +2,8 @@
 
 ## Idea generale
 
-Il progetto consiste in una web app a singola pagina pensata per studenti già iscritti al corso di Informatica.
-L’obiettivo è simulare un piccolo portale dove è possibile consultare gli esami caricati dai professori.
-
-Il sito permette di visualizzare una lista di esami e consultarne le informazioni principali.
+Il progetto consiste in una web app a singola pagina pensata per studenti del corso di Informatica. 
+L’obiettivo è simulare un piccolo portale universitario dove è possibile consultare appelli d’esame, orari delle lezioni e comunicazioni, oltre a inserire nuovi appelli tramite un’area docente simulata.
 
 ## Obiettivo del progetto
 
@@ -29,11 +27,15 @@ La web app dovrà permettere di:
 * caricare gli esami dal backend tramite chiamate HTTP;
 * aggiungere un nuovo appello tramite un form nell’area docente simulata;
 * ricevere messaggi di errore in caso di dati non validi;
-* visualizzare stati di caricamento, errore, successo e lista vuota.
+* visualizzare stati di caricamento, errore, successo e lista vuota;
+* visualizzare gli orari delle lezioni;
+* visualizzare comunicazioni universitarie ordinate per data;
+* mostrare e nascondere dinamicamente la tabella degli appelli;
+* attivare/disattivare una modalità scura tramite JavaScript e classList.
 
 ## Scelte progettuali
 
-Il progetto sarà sviluppato come applicazione front-end a singola pagina.
+Il progetto è sviluppato come applicazione web a singola pagina, con frontend statico e backend Node.js/Express per la gestione delle API.
 Non è previsto un sistema di login, in modo da mantenere il progetto gestibile e concentrarsi sugli argomenti principali del corso.
 
 I dati degli esami saranno salvati in file JSON lato server. Il frontend non accederà direttamente ai file JSON, ma comunicherà con il backend Express tramite chiamate HTTP fetch verso rotte REST.
@@ -50,6 +52,11 @@ La risorsa principale del progetto sarà rappresentata dagli appelli d’esame. 
 * `GET /api/exams/:id` — restituisce il dettaglio di un singolo appello;
 * `POST /api/exams` — permette di aggiungere un nuovo appello tramite l’area docente simulata.
 
+Oltre agli appelli, il backend espone anche altre risorse informative:
+
+* `GET /api/lessons` — restituisce l’orario delle lezioni;
+* `GET /api/communications` — restituisce le comunicazioni universitarie;
+
 I dati saranno salvati in file JSON lato server, ad esempio nella cartella `data/`. Il frontend non leggerà direttamente questi file, ma userà `fetch` con `async/await` per comunicare con il backend.
 
 Il server userà il middleware `express.json()` per leggere i dati inviati dal frontend in formato JSON e `express.static()` per servire i file HTML, CSS e JavaScript presenti nella cartella `public/`.
@@ -61,25 +68,30 @@ In caso di errore imprevisto, il server restituirà `500 Internal Server Error`.
 Questa struttura permette di mostrare il funzionamento del modello client-server, delle API REST, dei metodi HTTP, delle risposte JSON e degli status code.
 
 
-## Possibili funzionalità extra
+## Funzionalità extra implementate
 
-Se il tempo lo permette, si possono aggiungere alcune funzionalità extra:
+* modalità scura tramite aggiunta/rimozione della classe `dark` sul `body`;
+* possibilità di mostrare e nascondere la tabella degli appelli;
+* ordinamento delle comunicazioni dalla più recente alla meno recente;
+* messaggi dinamici di stato per caricamento, errore e successo.
 
-* filtrare gli esami per corso, anno o tipologia;
-* ordinamento degli esami per data;
-* evidenziazione degli esami più vicini;
-* sezione “preferiti”;
-* messaggio quando nessun esame corrisponde alla ricerca;
+## Possibili sviluppi futuri
 
+* filtro degli appelli per corso o tipologia;
+* ordinamento degli appelli per data;
+* sezione preferiti;
+* autenticazione reale per l’area docente.
 
 ## Tecnologie utilizzate
 
-* HTML
-* CSS
+* HTML5
+* CSS3
 * JavaScript
 * Fetch API
 * Node.js
 * Express
+* File system Node.js (`fs`)
+* Modulo `path`
 * JSON
 * Git e GitHub
 
@@ -90,6 +102,11 @@ Sezione Appelli con pulsante “Mostra appelli”, messaggio di stato e tabella 
 Sezione Orari con tabella degli insegnamenti.
 Sezione Comunicazioni con tabella degli avvisi.
 Sezione Area docente con form per inserire un nuovo appello.
+
+## Accessibilità
+
+Nel form sono utilizzati elementi `label` collegati agli input tramite l’attributo `for`, così da migliorare usabilità e accessibilità.  
+Alcuni messaggi dinamici usano `role="status"` per indicare alle tecnologie assistive che il contenuto può cambiare durante l’interazione con la pagina.
 
 ## Scenari di test
 

@@ -48,6 +48,7 @@ Programmazione-Web-Esame/
 - tasto submit per inviare il form oltre al form effettivo
 - chiamate al backend di tipo HTTP tramite fetch e async/await
 - visualizzazione dei risultati in tabelle nelle rispettive sezioni aggiunte dinamicamente con Javascript
+- bottone che permette di cambiare lo stile del sito in modalità dark mode
 ##### Backend
 - Server realizzato con Node.js ed Express
 - uso di middleware per gestire file JSON e servire file statici del frontend
@@ -123,4 +124,4 @@ alla consegna del progetto ho inviato tutto a chat gpt per avere una valutazione
 
 https://programmazione-web-esame.onrender.com
 
-infine è stato aggiunto il middleware morgan per leggere i log del server
+ed è stato aggiunto il middleware morgan per leggere i log del server
