@@ -42,7 +42,7 @@ function switchAppelli() {
 
 function nascondiAppelli()
 {
-  examsList.innerHTML = "";
+  examsList.replaceChildren();
   showExamsStatus("Appelli nascosti.");
   loadExamsButton.textContent = "Mostra Appelli";
   status2 = true;
